@@ -1,6 +1,8 @@
-#kalkulator
 """
-   kalkulator - działania: dodawanie, odejmowanie, mnożenie, dzielenie
+   addition(): float             # dodawanie
+   substration(): float          # odejmowanie
+   multiplication(): float       # mnożenie
+   division(): float / string    # dzielenie, string - dzielenie przez 0
 """
 import sys
 import logging
