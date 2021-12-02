@@ -4,47 +4,51 @@ logging.basicConfig(level=logging.DEBUG)
 
 def addition(nums):
     """
-    def addition(list of text: nums): -> :text
+    def addition(list of text: nums): -> :float
     """
     logging.info("Dodaję składniki: %s " % nums)
     wynik=0
     for num in nums:
         wynik+=float(num)
-    return str(wynik)
+    return wynik
 
 def substraction(num1, num2):
     """
-    def substraction(text: num1, text: num2): -> :text
+    def substraction(text: num1, text: num2): -> :float
     """
     logging.info("Odejmuje %s od %s" % (num2, num1))
     wynik=float(num1)-float(num2)
-    return str(wynik)
+    return wynik
 
 def multiplication(nums):
     """
-    def multiplication(list of text: nums): -> :text
+    def multiplication(list of text: nums): -> :float
     """
     logging.info("Mnożę mnożniki: %s " % nums)
     wynik=1
     for num in nums:
         wynik*=float(num)    
-    return str(wynik)
+    return wynik
 
 def devision(num1,num2):
     """
-    def devision(text: num1, text: num2) -> :text
+    def devision(text: num1, text: num2) -> :float / text if / 0
     """
     if float(num2)==0:
         logging.info("Próba dzielenia przez zero !")
-        return 'Brak wyniku'
+        return 'brak wyniku'
     else:
         logging.info("Dzielę %s przez %s" % (num1, num2))
         wynik=float(num1)/float(num2)
-        return str(wynik)
+        return wynik
 
 def operation(oper):
     """
     def operation(char: oper): -> :text
+    oper: 1 - dodawanie
+          2 - odejmowanie
+          3 - mnożenie
+          4 - dzielenie
     """
     if oper=="1":
        num_text=input("Podaj składniki rozdzielone przecinkiem: ")   
