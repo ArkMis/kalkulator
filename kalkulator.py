@@ -8,34 +8,39 @@ import sys
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
-def addition():
-    num_text=input("Podaj składniki rozdzielone przecinkiem: ")
-    logging.info("Dodaję składniki: %s " % num_text)
-    nums = num_text.split(',')
+def addition(nums):
+    """
+    def addition(list of text: nums): -> float
+    """
+    logging.info("Dodaję składniki: %s " % nums)
     wynik=0
     for num in nums:
         wynik+=float(num)
     return wynik
 
-def substraction():
-    num1=input("Podaj odjemną : ")
-    num2=input("Podaj odjemnik: ")
+def substraction(num1, num2):
+    """
+    def substraction(text: num1, text: num2): -> float
+    """
     logging.info("Odejmuje %s od %s" % (num2, num1))
     wynik=float(num1)-float(num2)
     return wynik
 
-def multiplication():
-    num_text=input("Podaj mnożniki rozdzielone przecinkiem: ")
-    logging.info("Mnożę mnożniki: %s " % num_text)
-    nums = num_text.split(',')
+def multiplication(nums):
+    """
+    def multiplication(list of text: nums): -> float
+    """
+    logging.info("Mnożę mnożniki: %s " % nums)
     wynik=1
+    print(type(nums))
     for num in nums:
         wynik*=float(num)    
     return wynik
 
-def devision():
-    num1=input("Podaj dzielną:  ")
-    num2=input("Podaj dzielnik: ")
+def devision(num1,num2):
+    """
+    def devision(text: num1, text: num2) -> :float or :str if / 0
+    """
     if float(num2)==0:
         logging.info("Cholero nie dziel przez zero !")
         return 'Brak wyniku'
@@ -47,13 +52,21 @@ def devision():
 if __name__ == "__main__":
     oper=input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: ")
     if oper=="1":
-       print("Wynik to %.2f" % addition())
+       num_text=input("Podaj składniki rozdzielone przecinkiem: ")   
+       nums = num_text.split(',')
+       print("Wynik to %.2f" % addition(nums))
     elif oper=="2":
-       print("Wynik to %.2f" % substraction())
+       num1=input("Podaj odjemną : ")
+       num2=input("Podaj odjemnik: ")
+       print("Wynik to %.2f" % substraction(num1,num2))
     elif oper=="3":
-        print("Wynik to %.2f" % multiplication())
+       num_text=input("Podaj mnożniki rozdzielone przecinkiem: ")
+       nums = num_text.split(',')
+       print("Wynik to %.2f" % multiplication(nums))
     elif oper=="4":
-        wyn=devision()
+        num1=input("Podaj dzielną:  ")
+        num2=input("Podaj dzielnik: ")
+        wyn=devision(num1,num2)
         if type(wyn) is str:
             print(wyn)
         else:
