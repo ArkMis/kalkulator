@@ -2,37 +2,33 @@ import sys
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
-def addition(nums):
+def add(num1, num2):
     """
-    def addition(list of text: nums): -> :float
+    def add(text: num1, text: num2): -> :float
     """
-    logging.info("Dodaję składniki: %s " % nums)
-    wynik=0
-    for num in nums:
-        wynik+=float(num)
+    logging.info("Dodaję składniki: %s %s" % (num1, num2))
+    wynik=float(num1)+float(num2)
     return wynik
 
-def substraction(num1, num2):
+def sub(num1, num2):
     """
-    def substraction(text: num1, text: num2): -> :float
+    def sub(text: num1, text: num2): -> :float
     """
     logging.info("Odejmuje %s od %s" % (num2, num1))
     wynik=float(num1)-float(num2)
     return wynik
 
-def multiplication(nums):
+def mult(num1, num2):
     """
-    def multiplication(list of text: nums): -> :float
+    def mult(text: num1, text: num2): -> :float
     """
-    logging.info("Mnożę mnożniki: %s " % nums)
-    wynik=1
-    for num in nums:
-        wynik*=float(num)    
+    logging.info("Mnożę mnożniki: %s, %s " % (num1, num2))
+    wynik=float(num1)*float(num2)
     return wynik
 
-def devision(num1,num2):
+def div(num1,num2):
     """
-    def devision(text: num1, text: num2) -> :float / text if / 0
+    def div(text: num1, text: num2) -> :float / text if / 0
     """
     if float(num2)==0:
         logging.info("Próba dzielenia przez zero !")
@@ -51,21 +47,25 @@ def operation(oper):
           4 - dzielenie
     """
     if oper=="1":
-       num_text=input("Podaj składniki rozdzielone przecinkiem: ")   
-       nums = num_text.split(',')
-       return addition(nums)
+       num1=input("Podaj składnik 1: ")
+       num2=input("Podaj składnik 2: ")
+       # num_text=input("Podaj składniki rozdzielone przecinkiem: ")   
+       # nums = num_text.split(',')
+       return add(num1, num2)
     elif oper=="2":
        num1=input("Podaj odjemną : ")
        num2=input("Podaj odjemnik: ")
-       return substraction(num1,num2)
+       return sub(num1,num2)
     elif oper=="3":
-       num_text=input("Podaj mnożniki rozdzielone przecinkiem: ")
-       nums = num_text.split(',')
-       return multiplication(nums)
+       num1=input("Podaj mnożnik 1: ")
+       num2=input("Podaj mnożnik 2: ")
+       #num_text=input("Podaj mnożniki rozdzielone przecinkiem: ")
+       #nums = num_text.split(',')
+       return mult(num1, num2)
     elif oper=="4":
         num1=input("Podaj dzielną:  ")
         num2=input("Podaj dzielnik: ")
-        return devision(num1,num2)
+        return div(num1,num2)
     else: 
         logging.info("Nieznana operacja")
     return ''
